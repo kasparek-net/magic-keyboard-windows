@@ -75,6 +75,7 @@ Written in keys **after the swap**: `<^` = command, `<#` = control, `<!` = optio
 | Cmd+Backspace | delete to start of line |
 | Option+Backspace | delete previous word |
 | Cmd+Q | close window (Alt+F4) |
+| Cmd+W (CorelDRAW) | close document (Ctrl+F4) |
 | Cmd+Tab / Cmd+Shift+Tab | switch applications |
 | Cmd+Option+←/→ | switch browser tabs |
 

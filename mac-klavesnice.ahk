@@ -49,6 +49,12 @@ A_MenuMaskKey := "vkE8"   ; keep a lone Win/Alt after a hotkey from opening Star
 ; --- Quit application ------------------------------------------------------
 <^q::Send "!{F4}"                   ; Cmd+Q        -> close window / application
 
+; --- Close document (Cmd+W) ------------------------------------------------
+; CorelDRAW uses Ctrl+W for Refresh Window; Ctrl+F4 closes the document.
+#HotIf WinActive("ahk_exe CorelDRW.exe")
+<^w::Send "^{F4}"                   ; Cmd+W        -> close document
+#HotIf
+
 ; --- Tab switching (replaces Ctrl+Tab, which Cmd+Tab took over) ------------
 <^<!Right::Send "^{Tab}"            ; Cmd+Option+Right -> next tab
 <^<!Left::Send "^+{Tab}"            ; Cmd+Option+Left  -> previous tab
