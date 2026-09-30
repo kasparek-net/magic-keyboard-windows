@@ -6,6 +6,22 @@ Manager.
 
 Tested on Windows 10 22H2, AutoHotkey v2.0.19, Czech QWERTZ layout.
 
+## Setting up a new machine
+
+```powershell
+git clone https://github.com/kasparek-net/magic-keyboard-windows
+cd magic-keyboard-windows
+powershell -ExecutionPolicy Bypass -File setup.ps1
+```
+
+`setup.ps1` asks for administrator rights, installs AutoHotkey v2, writes the
+Cmd/Ctrl swap to the registry and registers the scheduled task. Then disable
+PowerToys Keyboard Manager if you use PowerToys, and **reboot** — the
+`Scancode Map` only takes effect after a restart.
+
+Keep the clone somewhere permanent: the scheduled task runs the script
+straight out of this folder, so moving or deleting it breaks the hotkeys.
+
 ## What it solves
 
 | Problem | Solution |
@@ -15,7 +31,9 @@ Tested on Windows 10 22H2, AutoHotkey v2.0.19, Czech QWERTZ layout.
 | Cmd+arrows jumps by word instead of to the end of the line | hotkeys in AHK |
 | Hotkeys do not work in windows running as administrator | scheduled task with `RunLevel Highest` |
 
-## Installation
+## Installing step by step
+
+If you would rather not run `setup.ps1`, these are the individual steps:
 
 1. **Swap the keys** — run `prohodit-cmd-ctrl.reg` and **reboot**.
    It writes `Scancode Map` into `HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layout`.
